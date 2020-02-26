@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Assess PR Dept</title>
+</head>
+<body>
+
+<div id="evaluate">
+    <form method="POST" action="/getEmpDetails/">
+    {% csrf_token %}
+        <tr>
+            <td>
+                <h1>Assess PR Dept</h1>
+                <h1>Reports Submitted:</h1>
+            </td>
+            <td>
+                <input type="text" placeholder="user id" name="userid">
+            </td>
+            <td>
+                <button type="submit" name="button" class="button" >SUBMIT</button><br><br>
+            </td>
+            <td>
+                <textarea class="report"name="Comments" rows="7" cols="40" style="width:350px;"></textarea><br>
+            </td>
+        </tr>
+    </form>
+    <form method="POST" action="/submitHrReport/">
+    {% csrf_token %}
+        <tr>
+            <td>
+                <input type="text" placeholder="user id" name="userid"><br><br>
+            </td>
+            <td>
+                <label>
+                <strong>Q1.</strong>Oral and writing Communications Skills<br>
+                </label> 
+                <input type="number" placeholder="Marks" name="m1"><br><br>
+                
+            </td>
+            <td>
+                <label>
+                <strong>Q2.</strong>Interpersonal skills
+                </label>  
+                <input type="number" placeholder="Marks" name="m2"><br><br>
+            </td>
+            <td>
+                <label>
+                <strong>Q3.</strong>Initiative
+                </label> 
+                <input type="number" placeholder="Marks" name="m3"><br><br>
+            </td>
+            <td>
+                <label>
+                <strong>Q4.</strong>Presentation skills<br>
+                </label> 
+                <input type="number" placeholder="Marks" name="m4"><br><br>
+            </td>
+            <td>
+                    <label>
+                    <strong>Q5.</strong>Creativity<br>
+                    </label> 
+                    <input type="number" placeholder="Marks" name="m5"><br><br>
+            </td>
+            <td>
+                <label>Write your comments</label><br>
+                <textarea class="report" name="remarks" rows="7" cols="40" style="width:350px;"></textarea><br>
+            </td>  
+            <button type="submit" name="button" class="button" >Submit</button>
+            <button type="reset" name="button" class="button" >Reset</button><br><br>
+        </tr>
+    </form>
+</div>
+
+</body>
+</html>

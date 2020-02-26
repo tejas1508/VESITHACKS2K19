@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dept-team dashboad</title>
+    <link rel="stylesheet" href="{% static '/bootstrapdept/css/bootstrap.min.css'  %}">
+    <link rel="stylesheet" href="{% static '/fontsdept/font-awesome.min.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/Navigation-Clean.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/Navigation-with-Search.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/Sidebar-Menu.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/Sidebar-Menu1.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/SIdebar-Responsive-2.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/SIdebar-Responsive-21.css'  %}">
+    <link rel="stylesheet" href="{% static '/cssdept/styles.css'  %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+        <div class="container"><a class="navbar-brand" href="\dtDashboard">RATr</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">product</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">about us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">contact us</a></li>
+                </ul>
+                <form class="form-inline mr-auto" target="_self">
+                    <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style="color:#37434d;background-color:rgba(39,99,169,0.38);"></div>
+                </form><a class="btn btn-light action-button" role="button" href="/logout">Logout</a></div>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li> <button class="btn btn-dark btn-block" type="button" name="button" id="button1" onclick = 'loadDoc(this)'>Submit Report</button></li>
+                <li> <button class="btn btn-dark btn-block" type="button" name="button" id="button2" onclick = 'loadDoc(this)'>Employee Assessment&nbsp;</button></li>
+                <li> <button class="btn btn-dark btn-block" type="button" name="button" id="button3" onclick = 'loadDoc(this)'>Dept-head feedback</button></li>
+            </ul>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="container-fluid"><a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="here">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper"></div>
+    <script>
+        function loadDoc(button) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                     document.getElementById("here").innerHTML = this.responseText;
+                    }
+                    };
+    
+                    switch(button.id){
+                        case 'button1':
+                        xhttp.open("GET", "/reportform/", true);
+                        break;
+                        case 'button2':
+                    xhttp.open("GET", "/Empassessment/", true);
+                        break;
+                        case 'button3':
+                    xhttp.open("GET", "/deptheadfeedback/", true);
+                        break;
+                        case 'button4':
+                    xhttp.open("GET", "/viewuser/", true);
+                        break;
+    
+                    }
+                    xhttp.send();
+            }
+                 
+    </script>
+    <script src="{% static '/jsdept/jquery.min.js'  %}"></script>
+    <script src="{% static '/bootstrapdept/js/bootstrap.min.js'  %}"></script>
+    <script src="{% static '/jsdept/Sidebar-Menu.js'  %}"></script>
+</body>
+
+</html>
